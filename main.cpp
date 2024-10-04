@@ -17,8 +17,7 @@ int main(int argc, char *argv[])
 
     std::cout << "main program" << std::endl;
 
-    // Launch the kernel
-    MyFirstKernel<<<gridDim, blockDim>>>();
+    hipLaunchKernelGGL(MyFirstKernel, dim3(1), dim3(10), 0, 0);
 
     // Wait for GPU to finish before accessing on host
     hipDeviceSynchronize();
