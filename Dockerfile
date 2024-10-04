@@ -2,9 +2,11 @@
 
 FROM rocm/rocm-terminal:latest
 
+USER root
 
 # Set working directory
 WORKDIR /workspace
+
 
 # Copy the current directory contents into the container at /workspace
 COPY . /workspace
@@ -15,3 +17,4 @@ RUN /opt/rocm/bin/hipcc -o main main.cpp
 
 # Set the command to run your HIP program
 CMD ["sh", "-c", "./main > output.log 2>&1"]
+# CMD ["./main"]
