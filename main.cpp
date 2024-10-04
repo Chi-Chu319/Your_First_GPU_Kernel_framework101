@@ -11,7 +11,7 @@ __global__ void MyFirstKernel_a()
     printf("Thread ID: %d\n", threadId);
 }
 
-__global__ void MyFirstKernel_b(int* a, int* b, int* c, unsize arr_size)
+__global__ void MyFirstKernel_b(int* a, int* b, int* c, int arr_size)
 {
     
     int arr_id = blockdim.x * blockIdx.x + threadIdx.x;
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
                    return dist(mersenne_engine);
                };
     
-    unsize arr_size = argv[1];
+    int arr_size = argv[1];
 
     int BLOCK_SIZE = 1024;
 
