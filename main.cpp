@@ -5,11 +5,9 @@
 __global__ void MyFirstKernel()
 {
     int threadId = threadIdx.x;
-
-    printf("thread id: %d", threadId);
+    printf("Thread ID: %d\n", threadId); // Added newline for flushing
 }
 
-// TODO cpp main function
 int main()
 {
     // Define grid and block dimensions
@@ -24,4 +22,3 @@ int main()
 
     return 0;
 }
-
