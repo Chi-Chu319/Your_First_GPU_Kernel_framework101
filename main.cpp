@@ -1,11 +1,12 @@
 #include <hip/hip_runtime.h>
+#include <iostream>
 
 // Example pseudo code introducing hipLaunchKernelGGL:
 __global__ void MyFirstKernel()
 {
     int threadId = threadIdx.x;
 
-    printf("thread id: %d", threadId);
+    std::out << "thread id: " << threadId << std::endl; 
 }
 
 // TODO cpp main function
