@@ -9,7 +9,7 @@ __global__ void MyFirstKernel()
     printf("Thread ID: %d\n", threadId); // Added newline for flushing
 }
 
-int main(int argc, char *argv[]);
+int main(int argc, char *argv[])
 {
     // Define grid and block dimensions
     dim3 gridDim(1);
