@@ -2,16 +2,6 @@
 
 FROM rocm/rocm-terminal:latest
 
-# Install necessary packages
-RUN apt-get update && apt-get install -y \
-    cmake \
-    make \
-    g++ \
-    git \
-    wget \
-    rocm-dev \
-    hipblas \
-    && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /workspace
