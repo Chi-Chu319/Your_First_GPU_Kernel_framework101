@@ -6,7 +6,7 @@ __global__ void MyFirstKernel()
 {
     int threadId = threadIdx.x;
 
-    std::cout << "thread id: " << threadId << std::endl; 
+    printf("thread id: %d", threadId);
 }
 
 // TODO cpp main function
