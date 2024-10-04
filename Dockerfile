@@ -7,7 +7,6 @@ USER root
 # Set working directory
 WORKDIR /workspace
 
-
 # Copy the current directory contents into the container at /workspace
 COPY . /workspace
 
