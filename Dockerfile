@@ -15,4 +15,5 @@ COPY . /workspace
 RUN /opt/rocm/bin/hipcc -o main main.cpp
 
 # Set the command to run your HIP program
-CMD ["./main"]
+# CMD ["./main"]
+CMD ["./main", "2000"]

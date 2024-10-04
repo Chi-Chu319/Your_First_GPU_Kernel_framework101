@@ -14,19 +14,19 @@ __global__ void MyFirstKernel_a()
 __global__ void MyFirstKernel_b(int* a, int* b, int* c, int arr_size)
 {
     
-    int arr_id = blockdim.x * blockIdx.x + threadIdx.x;
+    int arr_id = blockDim.x * blockIdx.x + threadIdx.x;
     if (arr_id < arr_size) {
         c[arr_id] = b[arr_id] + a[arr_id];
     }
 }
 
-void matadd_naive(std::vector a, std::vector b, std::vector result_c) {
+void matadd_naive(std::vector<int> a, std::vector<int> b, std::vector<int> result_c) {
     for (int i = 0; i < a.size(); i ++) {
         c[i] = a[i] + b[i]
     }
 }
 
-void compare_reuslt(std::vector c, std::vector result_c) {
+void compare_reuslt(std::vector<int> c, std::vector<int> result_c) {
     for (int i = 0; i < a.size(); i ++) {
         assert(c[i] == result_c[i] && "addition error");
     }
