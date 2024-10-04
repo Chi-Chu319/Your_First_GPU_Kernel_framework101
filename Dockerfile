@@ -1,0 +1,27 @@
+# Dockerfile for HIP programming on ROCm environment
+
+FROM rocm/rocm-terminal:latest
+
+# Install necessary packages
+RUN apt-get update && apt-get install -y \
+    cmake \
+    make \
+    g++ \
+    git \
+    wget \
+    rocm-dev \
+    hipblas \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /workspace
+
+# Copy the current directory contents into the container at /workspace
+COPY . /workspace
+
+# Compile the HIP source code (assuming the main file is main.cpp)
+# Replace 'main.cpp' with the name of your HIP source file if different
+RUN /opt/rocm/bin/hipcc -o main main.cpp
+
+# Set the command to run your HIP program
+CMD ["./main"]
