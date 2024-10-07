@@ -1,6 +1,6 @@
 # Dockerfile for HIP programming on ROCm environment
 
-FROM rocm/rocm-terminal:latest
+FROM rocm/tensorflow:latest
 
 USER root
 

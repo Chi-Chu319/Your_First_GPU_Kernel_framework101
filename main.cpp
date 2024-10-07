@@ -80,6 +80,7 @@ int main(int argc, char *argv[])
     MyFirstKernel_b<<<gridDim, blockDim>>>(d_a, d_b, d_c, arr_size);
 
     // hipLaunchKernelGGL(MyFirstKernel_b, gridDim, blockDim, 0, 0, d_a, d_b, d_c, arr_size);
+    hipGetLastError();
     hipDeviceSynchronize();
 
     hipMemcpy(c.data(), d_c, arr_size * sizeof(int), hipMemcpyDeviceToHost);
