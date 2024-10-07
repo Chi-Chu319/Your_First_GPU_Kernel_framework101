@@ -16,7 +16,6 @@ __global__ void MyFirstKernel_a()
 
 __global__ void MyFirstKernel_b(int* a, int* b, int* c, int arr_size)
 {
-    printf("Thread ID: %d\n", threadIdx.x);
     int arr_id = blockDim.x * blockIdx.x + threadIdx.x;
     if (arr_id < arr_size) {
         c[arr_id] = b[arr_id] + a[arr_id];
@@ -35,9 +34,6 @@ void matadd_naive(const std::vector<int>& a, const std::vector<int>& b, std::vec
 
 void compare_result(const std::vector<int>& c, const std::vector<int>& result_c) {
     for (size_t i = 0; i < result_c.size(); i++) {
-        if (c[i] != result_c[i]) {
-            printf("mismatch idx: %d\n", i);
-        }
         assert(c[i] == result_c[i] && "addition error");
     }
 }
@@ -59,7 +55,6 @@ int main(int argc, char *argv[])
     int BLOCK_SIZE = 1024;
     int arr_size = atoi(argv[1]);
     int n_block = div_ceil(arr_size, BLOCK_SIZE);
-    printf("n_block: %d\n", n_block);
 
     dim3 blockDim(BLOCK_SIZE);
     dim3 gridDim(n_block);
